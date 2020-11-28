@@ -3,15 +3,43 @@ section {
 }
 
 section.intro {
-    background: rgb(4, 50, 61);
-    padding-top: 10em;
-    height: calc(100vh - 10em);
+    height: calc(100vh);
+    overflow-x: hidden;
+    overflow-y: hidden;
 
-    p {
-        font-size: 2em;
-        text-align: center;
-        margin-top: 5em;
-        color: white;
+    div {
+        position: absolute;
+        top: 30vh;
+        left: 10%;
+        p {
+            font-size: 2em;
+            text-align: center;
+            font-weight: bolder;
+            //margin-top: 5em;
+            color: white;
+        }
+        button {
+            background-color: darksalmon;
+            width: 120px;
+            height: 50px;
+            font-size: 1rem;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            box-shadow: white;
+            cursor: pointer;
+        }
+    }
+    img {
+        display: block;
+        transform: translate(0,0);
+        transition-duration: 1.5s;
+    }
+    .clicked {
+        transform: translate(-1500px, -904px);
+        transition-duration: 1.5s;
     }
 }
 
@@ -26,6 +54,7 @@ section.anim {
         position: absolute;
         font-size: 6em;
         text-transform: uppercase;
+        color: white;
         margin: 0;
         z-index: 1;
         left: 15%;
@@ -34,7 +63,8 @@ section.anim {
         position: absolute;
         font-size: 2em;
         z-index: 1;
-        top: 500px;
+        top: 50vh;
+        color: white;
     }
     .box1 {
         position: absolute;

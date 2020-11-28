@@ -3,6 +3,14 @@ import './Home.scss'
 import lax from 'lax.js'
 import Rellax from 'rellax'
 
+const clickBtn = (e) => {
+  let img = document.querySelector('.gogh')
+  if (img.classList.contains('clicked')) {
+    e.target.innerText = '나와라 고흐'
+  } else e.target.innerText = '잘가라 고흐'
+  img.classList.toggle('clicked')
+}
+
 const MyComponent = () => {
   useEffect(() => {
     let rellax = new Rellax('.rellax')
@@ -10,13 +18,17 @@ const MyComponent = () => {
   return (
     <div>
       <section className="intro">
-        <p className="rellax scroll-text" data-rellax-speed="6">Scroll Down</p>
+        <img className="gogh" src='/images/background.jpg' alt='background'/>
+        <div className="rellax" data-rellax-speed="10">
+          <p className="scroll-text">안녕들 하신가요??</p>
+          <button onClick={clickBtn}>나와라 고흐</button>
+        </div>
       </section>
-      <section className="anim">
+      <section className="anim rellax" data-rellax-speed="6">
         <h1 className="title lax">Animation</h1>
         <p className="desc"></p>
-        <div className="box1 lax"></div>
-        <div className="box2 lax"></div>
+        <div className="box1 lax"/>
+        <div className="box2 lax"/>
       </section>
     </div>
   )
@@ -31,7 +43,9 @@ const Home = () => {
       return window.scrollY
     })
     lax.addDriver('sec2scrollY', function() {
-      return window.innerHeight - window.scrollY
+      let val = window.innerHeight - window.scrollY - 100
+      console.log(val)
+      return val
     })
     lax.addElements(
       '.box1',
@@ -49,7 +63,7 @@ const Home = () => {
       {
         sec2scrollY: {
           opacity: [
-            [0, 100],
+            [0, 300],
             [1, 0]
           ]
         }
@@ -72,8 +86,8 @@ const Home = () => {
         var arr = '이런것도 해봤는데 어때염??? 괜춘한가여?'.split('')
         const scrollY = driverVal.scrollY[0]
         const oCount = Math.floor((scrollY / 10) + 1)
-        if (oCount >= 72) {
-          const oString = arr.slice(0,oCount-72).join("")
+        if (oCount >= 52) {
+          const oString = arr.slice(0,oCount-52).join("")
           domElem.innerText = oString
         } else {
           domElem.innerText = ''
@@ -82,7 +96,7 @@ const Home = () => {
     })
   }, [])
   return (
-    <MyComponent></MyComponent>
+    <MyComponent/>
   )
 }
 
