@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, {useEffect} from 'react'
 import './Home.scss'
 import lax from 'lax.js'
 import Rellax from 'rellax'
+import ScrollOut from "scroll-out";
 
 const clickBtn = (e) => {
   let img = document.querySelector('.gogh')
@@ -14,14 +15,22 @@ const clickBtn = (e) => {
 const MyComponent = () => {
   useEffect(() => {
     let rellax = new Rellax('.rellax')
+    ScrollOut({
+      offset: 100
+    })
   }, [])
   return (
     <div>
       <section className="intro">
         <img className="gogh" src='/images/background.jpg' alt='background'/>
         <div className="rellax" data-rellax-speed="10">
-          <p className="scroll-text">안녕들 하신가요??</p>
+          <h1 className="scroll-text">안녕들 하신가요??</h1>
           <button onClick={clickBtn}>나와라 고흐</button>
+          <div className="text" style={{width: 500 + 'px'}}>
+            <h2 data-scroll>고흐의 자화상</h2>
+            <span data-scroll>이 그림은 고흐가 자기를 그린 그림인데 겁나 비쌉니다.</span>
+          </div>
+
         </div>
       </section>
       <section className="anim rellax" data-rellax-speed="6">
@@ -36,6 +45,15 @@ const MyComponent = () => {
 
 
 const Home = () => {
+  window.addEventListener('scroll', e => {
+    let img = document.querySelector('.gogh')
+    let scrolly = window.scrollY
+    if (scrolly >= window.innerHeight/10) {
+      img.classList.add('clicked')
+    } else {
+      img.classList.remove('clicked')
+    }
+  })
   useEffect(() => {
     // lax JS config
     lax.init()
@@ -43,9 +61,7 @@ const Home = () => {
       return window.scrollY
     })
     lax.addDriver('sec2scrollY', function() {
-      let val = window.innerHeight - window.scrollY - 100
-      console.log(val)
-      return val
+      return window.innerHeight - window.scrollY - 100
     })
     lax.addElements(
       '.box1',
