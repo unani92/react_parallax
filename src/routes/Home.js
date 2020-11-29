@@ -20,7 +20,7 @@ const MyComponent = () => {
     })
   }, [])
   return (
-    <div>
+    <div className="home">
       <section className="intro">
         <img className="gogh" src='/images/background.jpg' alt='background'/>
         <div className="rellax" data-rellax-speed="10">
