@@ -1,5 +1,4 @@
 import Router from './components/Router'
-import { useEffect } from 'react'
 // import ScrollOut from 'scroll-out'
 
 function App() {
