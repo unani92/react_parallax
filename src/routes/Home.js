@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import './Home.scss'
 import lax from 'lax.js'
 import Rellax from 'rellax'
@@ -14,7 +14,7 @@ const clickBtn = (e) => {
 
 const MyComponent = () => {
   useEffect(() => {
-    let rellax = new Rellax('.rellax')
+    new Rellax('.rellax')
     ScrollOut({
       offset: 100
     })
