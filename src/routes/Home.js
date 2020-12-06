@@ -18,6 +18,9 @@ const MyComponent = () => {
     ScrollOut({
       offset: 100
     })
+    return () => {
+      console.log('clean up')
+    }
   }, [])
   return (
     <div className="home">
@@ -47,11 +50,15 @@ const MyComponent = () => {
 const Home = () => {
   window.addEventListener('scroll', e => {
     let img = document.querySelector('.gogh')
-    let scrolly = window.scrollY
-    if (scrolly >= window.innerHeight/10) {
-      img.classList.add('clicked')
+    if (img) {
+      let scrolly = window.scrollY
+      if (scrolly >= window.innerHeight/10) {
+        img.classList.add('clicked')
+      } else {
+        img.classList.remove('clicked')
+      }
     } else {
-      img.classList.remove('clicked')
+      return
     }
   })
   useEffect(() => {
@@ -110,6 +117,9 @@ const Home = () => {
         }
       }
     })
+    return () => {
+      console.log('clean up!!')
+    }
   }, [])
   return (
     <MyComponent/>

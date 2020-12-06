@@ -11,7 +11,7 @@ const Div = styled.div`
 
 const Ul = styled.ul`
   display: flex;
-  justify-content: center
+  justify-content: center;
   top: 0
 `
 const Li = styled.li`
