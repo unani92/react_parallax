@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import './About.css'
+import { Link } from 'react-router-dom'
+// import { gsap } from 'gsap'
 
 const About = () => {
   useEffect(() => {
@@ -12,7 +14,9 @@ const About = () => {
   })
   return (
     <div className='about'>
-      <button className='followbtn'>Launch It</button>
+      <button className='followbtn'>
+        <Link to="/">Launch It</Link>
+      </button>
     </div>
   )
 }
