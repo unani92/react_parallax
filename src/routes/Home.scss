@@ -9,6 +9,7 @@ section.intro {
     height: calc(100vh);
     overflow-x: hidden;
     overflow-y: hidden;
+    clip-path: circle(0%);
 
     .scroll-text {
         color: white;

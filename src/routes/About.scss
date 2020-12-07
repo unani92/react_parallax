@@ -1,0 +1,28 @@
+.about {
+  margin: 0;
+  height: 100vh;
+  background: #6b00d6;
+  display: grid;
+  place-content: center;
+  
+  button {
+    background: #8716f9;
+    border: none;
+    color: white;
+    padding: .5em 1em;
+    border-radius: 2em;
+    font-size: 1.3em;
+    font-weight: bold;
+    display: none;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    margin-top: 0;
+    cursor: none;
+    
+    a {
+      cursor: none !important;
+      text-decoration: none !important;
+    }
+  }
+}

@@ -3,6 +3,7 @@ import './Home.scss'
 import lax from 'lax.js'
 import Rellax from 'rellax'
 import ScrollOut from "scroll-out";
+import { gsap } from 'gsap'
 
 const clickBtn = (e) => {
   let img = document.querySelector('.gogh')
@@ -13,6 +14,16 @@ const clickBtn = (e) => {
 }
 
 const MyComponent = () => {
+
+  useEffect(() => {
+    var tl = gsap.timeline({
+      defaults: { duration: 2, ease: "power2.in" }
+    })
+    tl.paused(true)
+    tl.to('.intro', { clipPath: 'circle(100%)' })
+    tl.play()
+  }, [])
+
   useEffect(() => {
     new Rellax('.rellax')
     ScrollOut({

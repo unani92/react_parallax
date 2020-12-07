@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import './About.css'
+import './About.scss'
 import { Link } from 'react-router-dom'
 // import { gsap } from 'gsap'
 
